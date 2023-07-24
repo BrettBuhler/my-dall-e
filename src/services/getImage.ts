@@ -1,4 +1,3 @@
-import { promises } from "fs"
 import { Configuration, OpenAIApi } from "openai"
 
 export const getImage = async (image_text: string, n: number, size: string) => {

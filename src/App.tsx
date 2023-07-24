@@ -1,16 +1,14 @@
 import { useState, ChangeEvent } from "react"
 
 import Gallery from "./components/Gallery"
+import MakeImageUI from "./components/MakeImageUI"
 
 import { getImage } from "./services/getImage"
 
 const App = () => {
     const [inputValue, setInputValue] = useState<string>("")
+    const [size, setSize] = useState<number>(0)
     const [imageArray, setImageArray] = useState<string[][]>([])
-
-    const handleInputChange = (event: ChangeEvent<HTMLInputElement>):void => {
-        setInputValue(event.target.value)
-    }
 
     const makeNewImage = async () => {
         try {
@@ -26,8 +24,7 @@ const App = () => {
     }
 
     return (<div>
-        <input value={inputValue} onChange={handleInputChange}></input>
-        <button onClick={makeNewImage}>Make IMG</button>
+        <MakeImageUI imageArray={imageArray} setImageArray={setImageArray} />
         {imageArray.length > 0 && (
           <Gallery imageArray={imageArray} />
         )}
