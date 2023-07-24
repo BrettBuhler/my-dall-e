@@ -2,8 +2,10 @@ import { useState, ChangeEvent } from "react"
 
 import Gallery from "./components/Gallery"
 import MakeImageUI from "./components/MakeImageUI"
+import ImageMask from "./components/ImageMask"
 
 import { getImage } from "./services/getImage"
+import aiCath from "./images/AiCath.png"
 
 const App = () => {
     const [inputValue, setInputValue] = useState<string>("")
@@ -28,6 +30,7 @@ const App = () => {
         {imageArray.length > 0 && (
           <Gallery imageArray={imageArray} />
         )}
+        <ImageMask imageUrl={aiCath} maskColor="white"/>
     </div>)
 }
 
